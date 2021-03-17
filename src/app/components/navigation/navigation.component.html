@@ -1,0 +1,3 @@
+<nav class="nav nav-pills flex-column">
+    <a (click)="menuClicked.emit(item); addCount()" *ngFor="let item of menuItems" class="nav-link" [routerLink]="item.path" href="">{{ item.title }}</a>
+</nav>

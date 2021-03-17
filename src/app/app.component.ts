@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import {  DataService } from './services/data/data.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,33 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-app';
+
+  constructor(private data: DataService) {}
+  count?: any;
+
+  menuItems = [
+    {
+      title: 'Home',
+      path: '/'
+    },
+    
+    {
+      title: 'About',
+      path: '/about'
+    },
+    {
+      title: 'Search',
+      path: '/search'
+    }
+  ]
+
+  ngOnInit() {
+    this.data.getCounter().subscribe((data) => {
+      this.count = data;
+    });
+  }
+
+  onMenuClicked(data?: any) {
+    //
+  }
 }
