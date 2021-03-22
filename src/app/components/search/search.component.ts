@@ -12,16 +12,13 @@ export class SearchComponent implements OnInit {
   searchString: string = '';
   filterResult?: any[];
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService) {}
 
   ngOnInit(): void {
-    
   }
 
   onInput() {
     this.api.getData()
-     
-
     .subscribe((res: any[]) => {
       this.filterResult = res.filter((record) => {
         return record.name.includes(this.searchString);

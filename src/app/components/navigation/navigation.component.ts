@@ -13,10 +13,19 @@ export class NavigationComponent implements OnInit {
   @Input() menuItems: any = [];
   @Output() menuClicked = new EventEmitter();
 
-  constructor(private data: DataService) {}
+  constructor(private data: DataService) {
+
+  }
+  ngOnChanges() {
+    
+  }
 
   ngOnInit(): void {
     console.log(this.menuItems);
+  }
+
+  ngOnDestroy() {
+
   }
 
   addCount() {
