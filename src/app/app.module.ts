@@ -10,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { ItemDetailComponent } from './components/item-detail/item-detail.component';
 import { SearchComponent } from './components/search/search.component';
+import { DragScrollModule } from 'ngx-drag-scroll';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SearchComponent } from './components/search/search.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    DragScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]

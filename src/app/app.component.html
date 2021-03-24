@@ -28,7 +28,31 @@
 
   </div>
 
-  <div class="catalog">
+  <div class="catalog container">
+    <div class="header">
+
+      <div class="header-text">Men</div>
+    </div>
+    <div class="items">
+      <drag-scroll [scrollbar-hidden]="true">
+        <div drag-scroll-item *ngFor="let item of sliderItems">
+          <div  class="item">
+            <div class="top">
+              <div class="size">size</div>
+              <div class="color">color</div>
+            </div>
+            <div class="img">
+              <img src="../assets/item1.png" alt="">
+            </div>
+            <div class="bottom">
+              <div class="name">{{ item.name }}</div>
+              <div class="price">{{ item.price | currency:'EUR' }}</div>
+            </div>
+          </div>
+        </div>
+        
+      </drag-scroll>
+    </div>
 
   </div>
 
