@@ -1,0 +1,30 @@
+
+
+<div class="header">
+    <div class="header-text">{{ header }}</div>
+  </div>
+
+<div class="items">
+    <div class="buttons">
+      <button (click)="moveLeft()">Left</button>
+      <button (click)="moveRight()">Right</button>
+    </div>
+    <drag-scroll #nav [scrollbar-hidden]="true">
+      <div class="drag-item" drag-scroll-item *ngFor="let item of slides">
+        <div  class="item">
+          <div class="top">
+            <div class="size">size</div>
+            <div class="color">color</div>
+          </div>
+          <div class="img-container">
+            <img src="../assets/item1.png" alt="">
+          </div>
+          <div class="bottom">
+            <div class="name">{{ item.name }}</div>
+            <div class="price">{{ item.price | currency:'EUR' }}</div>
+          </div>
+        </div>
+      </div>
+    </drag-scroll>
+  </div>
+

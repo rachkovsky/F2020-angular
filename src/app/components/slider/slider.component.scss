@@ -1,0 +1,67 @@
+.header {
+    padding: 30px 0;
+    display: flex;
+    align-items: center;
+
+    &-text {
+        font-size: 20px;
+        padding-right: 50px;
+    }
+
+    &:after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: #cccccc;
+    }
+}
+
+.items {
+
+    .item {
+        margin: 0 30px;
+        background-color: #dce0e4;
+        width: 320px;
+        height: 100%;
+        max-height: 375px;
+        border: 6px solid transparent;
+        border-radius: 3px;
+        text-transform: uppercase;
+        font-weight: 600;
+
+        .top, .bottom {
+            display: flex;
+            justify-content: space-between;
+            padding: 18px;
+        }
+        .name {
+            color: #aa9b77;
+        }
+        .img-container {
+            text-align: center;
+            height: 270px;
+            padding: 0 20px;
+
+            img {
+                display: block;
+                height: auto;
+                width: auto;
+                max-height: 100%;
+                margin: auto;
+            }
+        }
+        &:hover {
+            border-color: #aa9b77;
+        }
+    }
+}
+
+drag-scroll {
+    height: 400px;
+}
+
+::ng-deep .drag-scroll-content {
+    margin-left: -30px;
+    margin-right: -30px;
+}

@@ -11,6 +11,7 @@ import { AboutComponent } from './components/about/about.component';
 import { ItemDetailComponent } from './components/item-detail/item-detail.component';
 import { SearchComponent } from './components/search/search.component';
 import { DragScrollModule } from 'ngx-drag-scroll';
+import { SliderComponent } from './components/slider/slider.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { DragScrollModule } from 'ngx-drag-scroll';
     HomeComponent,
     AboutComponent,
     ItemDetailComponent,
-    SearchComponent
+    SearchComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,
