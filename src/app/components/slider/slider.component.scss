@@ -18,7 +18,10 @@
 }
 
 .items {
-
+    a {
+        text-decoration: none;
+        color: black;
+    }
     .item {
         margin: 0 30px;
         background-color: #dce0e4;

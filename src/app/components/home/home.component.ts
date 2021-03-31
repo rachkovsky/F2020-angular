@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../../services/api.service';
-import { User } from '../../interfaces/user'
+import { CatalogService } from '../../services/catalog/catalog.service';
 
 @Component({
   selector: 'app-home',
@@ -8,16 +7,26 @@ import { User } from '../../interfaces/user'
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  menSlides = [];
+  womenSlides = [];
 
-  users!: [User] | undefined;
+  isManVisible = true;
+  isWomenVisible = true;
 
-  constructor(private api: ApiService) { }
+  constructor(private catalogService: CatalogService ) {}
 
-  ngOnInit(): void {
-    this.api.getData().subscribe((data: any) => {
-      console.log(data);
-      this.users = data;
+  ngOnInit() {
+    this.catalogService.getMenSlides().subscribe((data) => {
+      this.menSlides = data;
+    });
+
+    this.catalogService.getWomenSlides().subscribe((data) => {
+      this.womenSlides = data;
     })
   }
 
+  seeAllProduct() {
+    this.isManVisible = true;
+    this.isWomenVisible = true;
+  }
 }

@@ -9,11 +9,7 @@ import { DragScrollComponent } from 'ngx-drag-scroll';
 export class SliderComponent implements OnInit {
 
   @Input() slides: any[] = [];
-  @Input() header: string ='';
-
-  // sliderItems: Array<{ name: string, price: number}> = [
-
-  // ]
+  @Input() header: string = '';
 
   @ViewChild('nav', {read: DragScrollComponent}) ds!: DragScrollComponent;
 
