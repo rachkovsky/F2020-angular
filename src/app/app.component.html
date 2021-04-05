@@ -5,11 +5,12 @@
     </div>
     <nav>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Products</a></li>
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/">Products</a></li>
         <li>
-          <a href="#">
+          <a [routerLink]="['cart']">
             <img src="../assets/cart.png" alt="cart">
+            {{ cartCounter }}
           </a>
         </li>
       </ul>

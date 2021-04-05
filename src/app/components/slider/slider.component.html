@@ -12,7 +12,7 @@
     <drag-scroll #nav [scrollbar-hidden]="true">
       <div class="drag-item" drag-scroll-item *ngFor="let item of slides">
         <div  class="item">
-          <a [routerLink]="[item.id]" >
+          <a [routerLink]="['details', item.id]" >
             <div class="top">
               <div class="size">size</div>
               <div class="color">color</div>
