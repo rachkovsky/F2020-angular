@@ -1,4 +1,15 @@
 :host {
     display: block;
-    padding-top: 100px;
+    padding: 100px;
+}
+
+.panel {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(176, 191, 206);
+    border: 1px solid rgb(46, 42, 42);
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    font-size: 24px;
 }
