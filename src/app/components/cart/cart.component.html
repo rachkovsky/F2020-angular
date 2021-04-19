@@ -1,11 +1,10 @@
 <div class="container">
-    <div class="panel" *ngFor="let item of items">
-        <div class="info">{{ item.name }} ({{ item.price | currency:'EUR' }})</div>
-        <div class="actons">
-            <button>-</button>
-            {{ item.amount }}
-            <button (click)="addOne(item.id)">+</button>
-        </div>
+    <div class="panel" *ngFor="let item of items" >
+            <div class="info">{{ item.name }} ({{ item.price | currency:'EUR' }})</div>
+            <div class="actons">
+                <button *ngIf="item.amount > 0" (click)="removeOne(item.id)">-</button>
+                {{ item.amount }}
+                <button (click)="addOne(item.id)">+</button>
+            </div>
     </div>
-
 </div>
