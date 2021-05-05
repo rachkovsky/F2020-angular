@@ -1,10 +1,30 @@
 <div class="container">
     <div class="panel" *ngFor="let item of items" >
-            <div class="info">{{ item.name }} ({{ item.price | currency:'EUR' }})</div>
-            <div class="actons">
-                <button *ngIf="item.amount > 0" (click)="removeOne(item.id)">-</button>
-                {{ item.amount }}
-                <button (click)="addOne(item.id)">+</button>
-            </div>
+        <div class="info">{{ item.name }} ({{ item.price | currency:'EUR' }})</div>
+        <div class="actons">
+            <button *ngIf="item.amount > 0" (click)="removeOne(item.id)">-</button>
+            {{ item.amount }}
+            <button (click)="addOne(item.id)">+</button>
+        </div>
     </div>
+
+    <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">       
+        <input id="name" type="text" formControlName="name">
+        <div class="error" *ngIf="orderForm.controls['name'].errors?.minlength && orderForm.touched">Min. length is 2 symbols</div>
+        <div class="error" *ngIf="orderForm.controls['name'].errors?.required && orderForm.touched">Field is required</div>
+        <br>
+        <input type="text" formControlName="address">
+        <div>
+            <label>
+                Cash
+                <input type="radio" value="Cash" formControlName="paymentType">
+            </label>
+            <br>
+            <label>
+                Card
+                <input type="radio" value="Card" formControlName="paymentType">
+            </label>
+        </div>
+        <button type="submit" [disabled]="">Submit</button>
+    </form>
 </div>
