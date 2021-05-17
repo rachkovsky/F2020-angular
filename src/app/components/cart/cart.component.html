@@ -8,6 +8,8 @@
         </div>
     </div>
 
+    <div>  {{ cartAmount$ | async }}</div>
+
     <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">       
         <input id="name" type="text" formControlName="name">
         <div class="error" *ngIf="orderForm.controls['name'].errors?.minlength && orderForm.touched">Min. length is 2 symbols</div>
