@@ -3,8 +3,10 @@ import { CartService } from '../../services/cart/cart.service';
 import {  FormGroup, FormControl, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { addToCart, removeFromCart } from '../../actions/actions.cart';
-import { State } from '../../reducers';
+import { AppState } from '../../reducers';
+import { selectCartCount, selectCartItems } from '../../selectors/selectors.cart';
 import { Observable } from 'rxjs';
+import { Product } from '../../interfaces/product';
 
 @Component({
   selector: 'app-cart',
@@ -18,25 +20,16 @@ export class CartComponent implements OnInit {
     paymentType: new FormControl('')
   });
 
-  items: any[] = [];
-
-  cartAmount$!: Observable<number>;
+  items$ = this.store.select(selectCartItems);
+  cartAmount$ = this.store.select(selectCartCount);
 
   constructor(
     private cart: CartService,
-    private store: Store<{ cart: { amount: number } }>
+    private store: Store<AppState>,
   ) {
-    this.cartAmount$ = store.select('cart.amount')
   }
 
-  ngOnInit(): void {
-    this.items = this.cart.getCartItems();
-    this.orderForm.valueChanges.subscribe((v) => {
-      console.log(this.orderForm.controls['name'])
-    });
-
-    this.store.subscribe((v) => console.log(v));
-  }
+  ngOnInit(): void {}
 
   onSubmit() {
     let result = Object.assign(
@@ -46,26 +39,26 @@ export class CartComponent implements OnInit {
     console.log(result);
   }
 
-  addOne(id: number) {
+  addOne(id: string | number) {
     this.store.dispatch(addToCart());
 
-    this.items = this.items.map((el) => {
-      if (el.id === id) {
-        el.amount++;
-      }
-      return el;
-    });
-    this.cart.setItemsInCart(this.items);
+  //   this.items = this.items.map((el) => {
+  //     if (el.id === id) {
+  //       el.amount++;
+  //     }
+  //     return el;
+  //   });
+  //   this.cart.setItemsInCart(this.items);
   }
 
-  removeOne(id: number){
-    this.items = this.items.map((el) => {
-      if (el.id === id) {
-        el.amount--;
-      }
-      return el;
-    });
-    this.cart.setItemsInCart(this.items);
+  removeOne(id: string | number){
+  //  this.items = this.items.map((el) => {
+  //     if (el.id === id) {
+  //       el.amount--;
+  //     }
+  //     return el;
+  //   });
+  //   this.cart.setItemsInCart(this.items);
   }
 
 }

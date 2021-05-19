@@ -8,13 +8,13 @@ import {
 import { environment } from '../../environments/environment';
 import * as formCart from './reducer.cart';
 
-export interface State {
-  cart: formCart.cartState
+export interface AppState {
+  cart: formCart.State
 }
 
-export const reducers: ActionReducerMap<State> = {
+export const reducers: ActionReducerMap<AppState> = {
   cart: formCart.cartReducer
 };
 
 
-export const metaReducers: MetaReducer<State>[] = !environment.production ? [] : [];
+export const metaReducers: MetaReducer<AppState>[] = !environment.production ? [] : [];
