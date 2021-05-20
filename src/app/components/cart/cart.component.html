@@ -2,15 +2,13 @@
     <div class="panel" *ngFor="let item of items$ | async | keyvalue" >
         <div class="info">{{ item.value.name }} ({{ item.value.price | currency:'EUR' }})</div>
         <div class="actons">
-            <button *ngIf="item.value.amount > 0" (click)="removeOne(item.value.id)">-</button>
+            <button *ngIf="item.value.amount > 0" (click)="removeOne(item.value)">-</button>
             {{ item.value.amount }}
-            <button (click)="addOne(item.value.id)">+</button>
+            <button (click)="addOne(item.value)">+</button>
         </div>
     </div>
 
-    <div>  {{ cartAmount$ | async }}</div>
-
-    <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">       
+    <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
         <input id="name" type="text" formControlName="name">
         <div class="error" *ngIf="orderForm.controls['name'].errors?.minlength && orderForm.touched">Min. length is 2 symbols</div>
         <div class="error" *ngIf="orderForm.controls['name'].errors?.required && orderForm.touched">Field is required</div>

@@ -1,5 +1,5 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { addToCart, removeFromCart, addItemToCart } from '../actions/actions.cart';
+import { addToCart, removeFromCart, addItemToCart, removeItemFromCart } from '../actions/actions.cart';
 import { Product } from './../interfaces/product';
 
 export interface State {
@@ -24,7 +24,7 @@ const _cartReducer = createReducer(
                     ...state.items,
                     [product.id]: {
                         ...product,
-                        amount: state.items[product.id].amount + 1 
+                        amount: state.items[product.id].amount + 1
                     }
                 }
             }
@@ -40,6 +40,27 @@ const _cartReducer = createReducer(
                 }
             }
         }
+    }),
+    on(removeItemFromCart, (state: State, product) => {
+      if (product.id in state.items && state.items[product.id].amount > 1) {
+        return {
+            ...state,
+            items: {
+                ...state.items,
+                [product.id]: {
+                    ...product,
+                    amount: state.items[product.id].amount - 1
+                }
+            }
+        }
+    } else {
+      let copyItems = Object.assign({}, state.items)
+      delete copyItems[product.id];
+      return {
+        ...state,
+        items: copyItems,
+      }
+    }
     })
 );
 

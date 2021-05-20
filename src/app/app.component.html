@@ -10,7 +10,7 @@
         <li>
           <a [routerLink]="['cart']">
             <img src="../assets/cart.png" alt="cart">
-            {{ cartCounter }}
+            {{ cartCounter$ | async }}
           </a>
         </li>
       </ul>
