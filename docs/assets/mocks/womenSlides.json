@@ -1,0 +1,38 @@
+[
+    {
+      "name":"T-shirt",
+      "price":70,
+      "id": "7",
+      "desc": "some text"
+    },
+    {
+      "price":10,
+      "name":"Ololo",
+      "id": "8",
+      "desc": "some text"
+    },
+    {
+      "name":"Test",
+      "price":50,
+      "id": "9",
+      "desc": "some text"
+    },
+    {
+      "name":"Hat",
+      "price":20,
+      "id": "10",
+      "desc": ""
+    },
+    {
+      "name":"Pants",
+      "price":70,
+      "id": "11",
+      "desc": ""
+    },
+    {
+      "name":"Glasses",
+      "price":170,
+      "id": "12",
+      "desc": ""
+    }
+]
