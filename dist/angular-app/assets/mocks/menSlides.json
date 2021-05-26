@@ -1,0 +1,32 @@
+[
+    {
+      "id": "1",
+      "name":"T-shirt",
+      "price":30
+    },
+    {
+      "id": "2",
+      "price":10,
+      "name":"Ololo"
+    },
+    {
+      "id": "3",
+      "name":"Test",
+      "price":50
+    },
+    {
+      "id": "4",
+      "name":"Hat",
+      "price":20
+    },
+    {
+      "id": "5",
+      "name":"Pants",
+      "price":70
+    },
+    {
+      "id": "6",
+      "name":"Glasses",
+      "price":170
+    }
+]

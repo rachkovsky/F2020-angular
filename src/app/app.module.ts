@@ -13,7 +13,6 @@ import { SearchComponent } from './components/search/search.component';
 import { DragScrollModule } from 'ngx-drag-scroll';
 import { SliderComponent } from './components/slider/slider.component';
 import { CartComponent } from './components/cart/cart.component';
-import { RedDirective } from './directives/red.directive';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -30,7 +29,6 @@ import { CartEffects } from './effects/effects.cart'
     SearchComponent,
     SliderComponent,
     CartComponent,
-    RedDirective
   ],
   imports: [
     BrowserModule,

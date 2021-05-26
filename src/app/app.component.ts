@@ -11,6 +11,8 @@ import { AppState } from './reducers';
 })
 export class AppComponent {
 
+  title = 'angular-app';
+
   cartCounter$!: Observable<any>;
 
   constructor(private store:  Store<AppState>) {

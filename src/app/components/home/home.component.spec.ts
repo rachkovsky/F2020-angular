@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { CatalogService } from '../../services/catalog/catalog.service';
+import { MockCatalogService } from '../../mocks/mockCatalogService.service';
 
 import { HomeComponent } from './home.component';
 
@@ -8,7 +10,11 @@ describe('HomeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
+      declarations: [ HomeComponent ],
+      providers: [{
+        provide: CatalogService,
+        useClass: MockCatalogService
+      }],
     })
     .compileComponents();
   });
@@ -22,4 +28,14 @@ describe('HomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('Method seeAllProduct() works as expected', () => {
+    component.isManVisible = false;
+    component.isWomenVisible = false;
+    component.seeAllProduct();
+    expect(component.isManVisible).toBeTrue();
+    expect(component.isWomenVisible).toBeTrue();
+  });
+
+
 });
