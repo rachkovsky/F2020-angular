@@ -17,6 +17,10 @@ const routes: Routes = [
     path: 'details/:id',
     component: ItemDetailComponent,
   },
+  {
+    path: '**', 
+    redirectTo: '/'
+  }
 ];
 
 @NgModule({
