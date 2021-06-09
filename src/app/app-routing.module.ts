@@ -8,10 +8,17 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+    data: {
+      pageTitle: 'Home'
+    }
   },
   {
     path: 'cart',
     component: CartComponent,
+    data: {
+      pageTitle: 'Cart'
+    }
+    
   },
   {
     path: 'details/:id',
